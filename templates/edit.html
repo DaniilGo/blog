@@ -1,0 +1,50 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.css" media="screen">
+</head>
+<body>
+<div class="container">
+    {{end}}
+
+{{define "page"}}
+    {{template "header"}}
+    <h3>Post</h3>
+    <form method="POST" action="/results">
+        <div class="form-group">
+            <label>Id</label>
+            <input type="id" name="id" class="form-control" value="{{.Id}}">
+        </div>
+        <div class="form-group">
+            <label>Title</label>
+            <input type="title" name="title" class="form-control" value="{{.Title}}">
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <input type="text" name="date" class="form-control" value="{{.Date}}">
+        </div>
+        <div class="form-group">
+            <label>Link</label>
+            <input type="text" name="link" class="form-control" value="{{.Link}}">
+        </div>
+        <div class="form-group">
+            <label>Comment</label>
+            <textarea name="comment" class="form-control">{{.Comment}}</textarea>
+        </div>
+        <input class="btn btn-primary" type="submit" value="submit">
+        <a class="btn btn-outline-primary" href="/">Back</a>
+    </form>
+    {{template "footer"}}
+{{end}}
+
+{{define "footer"}}
+    </div>
+    <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
+    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+    </html>
+{{end}}

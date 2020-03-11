@@ -1,0 +1,47 @@
+{{define "page"}}
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Блог</title>
+        {{template "Resources"}}
+    </head>
+    <body>
+    <div class="uk-card uk-card-default uk-card-body">
+        <h1>Блог</h1>
+        <h2>Приветствую!</h2>
+        <p>Заголовок</p>
+        {{template "Posts" .}}
+    </div>
+    </body>
+    </html>
+{{end}}
+
+{{define "Posts"}}
+    <div class="uk-card uk-card-body">
+        <ul class="uk-list">
+            {{range .}}
+                {{template "ListItem" .}}
+            {{end}}
+        </ul>
+    </div>
+{{end}}
+
+{{define "ListItem"}}
+    <li>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3>{{.Title}}</h3>
+            <h4>{{.Date}}</h4>
+            <p>{{.Comment}}</p>
+            <p>{{.Link}}</p>
+            <a class="uk-button uk-button-default" href="/post/{{.Id}}">ПОДРОБНЕЕ</a>
+            <a class="uk-button uk-button-default" href="/edit/{{.Id}}">РЕДАКТИРОВАТЬ ПОСТ</a>
+        </div>
+    </li>
+{{end}}
+
+{{define "Resources"}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+{{end}} 
